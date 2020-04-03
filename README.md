@@ -25,8 +25,7 @@ starting from it, is allocated. Another is called the best fit strategy,
 in which the starting address of a block of consecutive unallocated locations
 of minimum size >= required number is allocated. 
 
-For the lab, implement only the first fit strategy. You can compare it
-with best fit later.
+##### Implementing first strategy
 
 Input Format
 The first line of input specifies n, the number of programs, and M the
@@ -34,10 +33,10 @@ number of memory locations. Assume 1 <= n <= 1000 and 1 <=  M <= 10^9.
 The subsequent lines contain a description of the requests to the system.
 Each request is of one of the following types:
 
-A pid size
-D pid address
-T pid
-H
+##### A pid size
+##### D pid address
+##### T pid
+##### H
 
 A pid size :  allocate size consecutive locations to program number pid.
 D pid address : deallocate memory allocated to program number pid at address.
@@ -59,15 +58,17 @@ The total number of requests would be at most 10^6.
 In this problem, correctness is important and not efficiency. 
 Simple data structures using lists/vectors are sufficient, although it
 is possible to have more efficient ones.
-                
-Sample Input    Sample Output
-2 10            0
-A 0 5           5
-A 1 4           0
-A 0 4           0
-D 0 0           -1 
-A 1 2           
-H
+
+
+| Sample Input  | Sample Output |
+|---------------|:-------------:|
+|    2 10       |               |
+|    A 0 5      |     0         |
+|    A 1 4      |     5         |
+|    A 0 4      |     0         |
+|    D 0 0      |     0         |
+|    A 1 2      |     -1        |
+|    H          |  `terminates` |
 
 Note that using a different strategy it is possible to allocate all requests.
 The locations assigned are [0,4], [6,9] [0,3] [4,5]. There is no efficient
